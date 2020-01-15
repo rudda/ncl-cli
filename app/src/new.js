@@ -1,15 +1,24 @@
 var shell = require('shelljs');
 
 
-/**
- *
- * @param {*} name project name
- * when init a new project then are created some default dirs 
- */
-function init( name ) {
+module.exports = {
+    /**
+     *
+     * @param {*} project_name project name
+     * when init a new project then are created some default dirs 
+     */
+    new: function newProject(project_name) {
 
-    shell.mkdir('-p', process.cwd() + `/${name}/app`);
-    shell.mkdir('-p', process.cwd() + `/${name}/assets`);
-    shell.mkdir('-p', process.cwd() + `/${name}/fonts`);
+        if (project_name !== null && project_name != undefined ) {
+            
+            console.info(`creating new project`);
 
+            shell.mkdir('-p', process.cwd() + `/${project_name}/app`);
+            shell.mkdir('-p', process.cwd() + `/${project_name}/assets`);
+            shell.mkdir('-p', process.cwd() + `/${project_name}/fonts`);
+
+        } else {
+            throw 'project name is not defined';
+        }
+    }
 }
