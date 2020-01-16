@@ -5,7 +5,7 @@
   "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "new": "node app/scripts/new"
+    "postinstall":"node app/src/hooks/post.install.js"
   },
   "bin": {
     "nora": "./bin/nora.js"
@@ -13,6 +13,11 @@
   "author": "rudda beltrao",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.3",
+    "minimist": "^1.2.0",
     "shelljs": "^0.8.3"
   }
 }
