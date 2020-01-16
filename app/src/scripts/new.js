@@ -1,10 +1,12 @@
-var shell = require('shelljs');
+const shell = require('shelljs');
+const fs = require('fs');
+const templates = require('../templates/templates');
 
 
 module.exports = {
     /**
      *
-     * @param {*} project_name project name
+     * @param {set a project name } project_name project name
      * when init a new project then are created some default dirs 
      */
     new: function newProject(project_name) {
@@ -17,8 +19,12 @@ module.exports = {
             shell.mkdir('-p', process.cwd() + `/${project_name}/assets`);
             shell.mkdir('-p', process.cwd() + `/${project_name}/fonts`);
 
+            fs.writeFileSync(process.cwd() + `/${project_name}/index.html`, templates.template_index, callback => {
+                console.info(callback);
+            })
+
         } else {
             throw 'project name is not defined';
         }
     }
-}
+};

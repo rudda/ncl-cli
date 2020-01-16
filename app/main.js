@@ -1,20 +1,15 @@
-const _new = require('./src/new');
+const _new = require('./src/scripts/new');
 const program = require('minimist')(process.argv.slice(2));
-const chalk = require('chalk');
-const clear = require('clear');
-const figlet = require('figlet');
 
 
-function init() {
-    clear();
+function main() {
+    
+    if (program._[0] === 'new') {
+        _new.new(program._[1]);
+    }
 
-    console.log(
-        chalk.yellow(
-            figlet.textSync('Nora', { horizontalLayout: 'full' })
-        )
-    );
-}
+};
 
+main();
 
-init();
-console.log(program);
+module.exports = main;

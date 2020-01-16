@@ -1,5 +1,3 @@
 #!/usr/bin/env node
-var _new = require('../app/src/new');
-var params = process.argv.slice(2);
-console.log(params);
-_new.new(params[0]);
+var _main = require('../app/main');
+
