@@ -1,11 +1,11 @@
 {
   "name": "ncl-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall":"node app/src/hooks/post.install.js"
+    "postinstall": "node app/src/hooks/post.install.js"
   },
   "bin": {
     "nora": "./bin/nora.js"
