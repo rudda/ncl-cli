@@ -2,7 +2,6 @@ const shell = require('shelljs');
 const fs = require('fs');
 const templates = require('../templates/templates');
 
-
 module.exports = {
     /**
      *
@@ -23,17 +22,17 @@ module.exports = {
             shell.mkdir('-p', process.cwd() + `/${project_name}/fonts`);
 
             /** creating important files */
-            fs.writeFileSync(process.cwd() + `/${project_name}/index.html`, '', callback => {});
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.js`, '', callback => {});
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.html`, templates.template_index, callback => {});
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.css`, templates.template_index, callback => {});
+            fs.writeFileSync(process.cwd() + `/${project_name}/index.html`, '', callback => { });
+            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.js`, '', callback => { });
+            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.html`, templates.template_index, callback => { });
+            fs.writeFileSync(process.cwd() + `/${project_name}/app/app.css`, templates.template_index, callback => { });
 
             /** init npm project */
             shell.cd(process.cwd() + `/${project_name}`);
-            shell.exec('npm init -f', {silent: true});
+            shell.exec('npm init -f', { silent: true });
 
             /** intall core dependencies... such as ncljs (ncljs works in progress :/) */
-            shell.exec('npm install ', {silent: true});
+            shell.exec('npm install ', { silent: true });
 
 
         } else {
@@ -41,12 +40,23 @@ module.exports = {
         }
     },
     /** TODO fix: when create component with path name e.e /compoments/headerComponent output: header.component.html */
-    component : function component(component_name) {
-            
-            /** creating important files */
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/${component_name}/${component_name}.html`, '', callback => {});
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/${component_name}/${component_name}.js`, '', callback => {});
-            fs.writeFileSync(process.cwd() + `/${project_name}/app/${component_name}/${component_name}.css`, templates.template_index, callback => {});
+    component: function component(component_name) {
         
+        try {
+
+            var _package = require(process.cwd() + '/' + 'package.json');
+
+            /** creating folders */
+            shell.mkdir('-p', process.cwd() + `/app/${component_name}`);
+
+            /** creating important files */
+            fs.writeFileSync(process.cwd() + `/app/${component_name}/${component_name}.html`, '', callback => { });
+            fs.writeFileSync(process.cwd() + `/app/${component_name}/${component_name}.js`, '', callback => { });
+            fs.writeFileSync(process.cwd() + `/app/${component_name}/${component_name}.css`, templates.template_index, callback => { });
+
+        } catch (error) {
+            console.error('package.json not found', error);
+        }
+
     }
 };
