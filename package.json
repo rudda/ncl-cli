@@ -1,5 +1,5 @@
 {
-  "name": "nora",
+  "name": "nora-cli",
   "version": "1.0.5",
   "description": "",
   "main": "app/main.js",
