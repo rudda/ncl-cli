@@ -1,14 +1,12 @@
-## NCL-cli
+
+# Description
+Nora is a Framework that designed to help DTV developers create applications more easylly.
+
+
+# How to install ?
+
+    npm install nora
+
+# How to create a New project ?
+
     
-    NCL-cli is a toolkit to support nclJS library witch help to create a nclJS project more easy.
-
-## Folder structure
-
-    .
-    ├── app
-    │   └── src
-    └── bin
-
-## References
-
-* [How to create a global module for Node.js properly](https://ourcodeworld.com/articles/read/393/how-to-create-a-global-module-for-node-js-properly)
