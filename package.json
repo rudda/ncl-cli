@@ -5,7 +5,7 @@
   "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node app/src/hooks/post.install.js"
+    "postinstall": "app/src/hooks/post.install.js"
   },
   "bin": {
     "nora": "./bin/nora.js"
